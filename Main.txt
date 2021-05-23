@@ -1,0 +1,120 @@
+function Main() {                                                                                    // Get the information from the Equipment and NWDB sheets and distributes it to the Log.
+  
+ 
+  var ss = SpreadsheetApp.getActiveSpreadsheet();                                                    // Gets Active Spreadsheet.
+  var log = ss.getSheetByName('Log');                                                                // Log sheet.
+  var equipment = ss.getSheetByName('Equipment');                                                    // Equipment sheet.
+  var NWDB = ss.getSheetByName('NWDB');                                                              // National Weather Database sheet.
+  var substitution = ss.getSheetByName("Substitution");                                              // Substitution sheet.
+  
+  var temp = NWDB.getRange("H11").getValue();                                                        // Gets the range and the value of the Ambient Temperature on the NWDB sheet.
+                              
+  var equipmentDate = equipment.getRange(12,10,1,1);                                                 // Gets the range of the Date on the Equipment sheet.
+  var substitutionDate = substitution.getRange(substitution.getLastRow()+2,2,1,1);                   // Gets the range of the Date on the Substitution sheet.
+  var equipmentWell = equipment.getRange(13,10,1,1);                                                 // Gets the range of the Well on the Equipment sheet.
+  var substitutionWell = substitution.getRange(substitution.getLastRow()+2,4,1,1);                   // Gets the range of the Well on the Substitution sheet.
+  var equipmentStage = equipment.getRange(14,10,1,1);                                                // Gets the range of the Stage on the Equipment sheet.
+  var substitutionStage = substitution.getRange(substitution.getLastRow()+2,5,1,1);                  // Gets the range of the Stage on the Substitution sheet.
+  var equipmentPumpList = equipment.getRange(2,2,16,5);                                              // Gets the range of Pumps on the Equipment sheet.
+  var substitutionPumpList = substitution.getRange(substitution.getLastRow()+2,7,16,5);              // Gets the range of Pumps on the Substitution sheet.
+
+  var fuelHighBeg = equipment.getRange("H4:I4");                                                     // Equipment sheet high side beginning strap.
+  var fuelHighEnd = equipment.getRange("H5:I5");                                                     // Equipment sheet high side ending strap.
+  var fuelLowBeg = equipment.getRange("H9:I9");                                                      // Equipment sheet low side beginning strap.
+  var fuelLowEnd = equipment.getRange("H10:I10");                                                    // Equipmet sheet low side ending strap.
+
+  var equipmentRange1 = equipment.getRange("J12:J14");                                               // Equipment sheet range (Date, Well, Stage).
+  var equipmentRange2 = equipment.getRange("J16:J22");                         // Equipment sheet range (Stage Start, Gas Pressure, Gas Temp, Stage End, Minutes @ Rate Avg Rate, Avg Pressure).
+  var gasBeg = equipment.getRange("J15");                                                            // Equipment sheet range (Gas Meter Start).
+  var gasEnd = equipment.getRange("J23");                                                            // Equipment sheet range (Gas Meter End).
+                                    
+  var stageCounter = log.getRange(log.getLastRow()+0, 1, 1, 1);                                      // Gets the range of the last stage count number on the Log sheet.
+  var stageCounterValue = stageCounter.getValue();                                                   // Gets the value of the last stage count number on the Log sheet.
+ 
+
+  
+  var avgRate = equipment.getRange("J21").getValue();                                                // Equipment sheet range (Avg Rate) get value.
+  var avgPressure = equipment.getRange("J22").getValue();                                            // Equipment sheet range (Avg Pressure) get value.
+  var HHP = (avgRate * avgPressure) / 40.8095238095;                                                 // Calculated HHP.
+  var mcfPerStage = equipment.getRange("L13").getValue();                                            // mcf used per stage.
+  var minutesAtRate = equipment.getRange("J20").getValue();                                          // Minutes pumping at desired rate.
+  var mcfPerMin = mcfPerStage / minutesAtRate;                                                       // Calculated mcfPerMin.
+  var PumpsOnGas = equipment.getRange("L14").getValue();                                             // Count of Pumps on Gas.
+  var mcfPerHourPerPump = (mcfPerMin * 60) / PumpsOnGas;                                             // Calculated mcf per hour per pump on gas.
+  var stageDuration = equipment.getRange("L19").getValue();                                          // Difference between stage start time, and stage end time.
+  var gallonsPerStage = equipment.getRange("L12").getValue();                                        // Diesel used per stage.
+  var galPerMin = gallonsPerStage / minutesAtRate;                                                   // Calculated Gallons Minute.
+  var totalPumpsOnline = equipment.getRange("L15").getValue();                                       // Total count of all pumps online.
+  var galPerHourPerPump = (galPerMin * 60) / totalPumpsOnline;                                       // Calculated gallons per hour per total pumps online.
+  var gallonStartHigh = equipment.getRange("K4").getValue();                                         // Equipment sheet range (High Side Beginning Gallons).
+  var gallonEndHigh = equipment.getRange("K5").getValue();                                           // Equipment sheet range (High Side Ending Gallons).
+  var gallonStartLow = equipment.getRange("K9").getValue();                                          // Equipment sheet range (Low Side Beginning Gallons).
+  var gallonEndLow = equipment.getRange("K10").getValue();                                           // Equipment sheet range (Low Side Ending Gallons).
+  var gallonStartingStrap = gallonStartHigh + gallonStartLow;                                        // Equipment sheet calculation (High Side Beginning Strap + Low Side Beginning Strap).
+  var gallonEndingStrap = gallonEndHigh + gallonEndLow;                                              // Equipment sheet calculation (High Side Ending Strap + Low Side Ending Strap).
+  
+  var valuecount = ("25");
+  var values = [[stageCounterValue +1,                                                               // Takes the value of the last stage count on the Log sheet and adds one to it.
+                 equipment.getRange("J12").getValue(),                                               // Date.
+                 equipment.getRange("J13").getValue(),                                               // Well.
+                 equipment.getRange("J14").getValue(),                                               // Stage.
+                 equipment.getRange("L15").getValue(),                                               // Count of Total Pumps Online.
+                 equipment.getRange("L14").getValue(),                                               // Count of Pumps on Gas.
+                 HHP,                                                                                // Calculated HHP.
+                 equipment.getRange("J16").getValue(),                                               // Stage Start Time.
+                 equipment.getRange("J19").getValue(),                                               // Stage End Time.
+                 equipment.getRange("J20").getValue(),                                               // Minutes @ Rate.
+                 equipment.getRange("J15").getValue(),                                               // Gas Meter Start.
+                 equipment.getRange("J23").getValue(),                                               // Gas Meter End.
+                 equipment.getRange("L13").getValue(),                                               // Gas Used.
+                 equipment.getRange("J17").getValue(),                                               // Gas Pressure.
+                 equipment.getRange("J18").getValue(),                                               // Gas Temperature.
+                 mcfPerMin,                                                                          // Mcf/Min.
+                 mcfPerHourPerPump,                                                                  // Mcf/Pump/Hour.
+                 gallonStartingStrap,                                                                // Diesel Meter Start.
+                 gallonEndingStrap,                                                                  // Diesel Meter End.
+                 equipment.getRange("L12").getValue(),                                               // Diesel Used.
+                 galPerHourPerPump,                                                                  // Gal/Hour/Pump.
+                 equipment.getRange("J21").getValue(),                                               // Average Rate.
+                 equipment.getRange("J22").getValue(),                                               // Average Pressure.
+                 temp,                                                                               // Ambient Temperature From The National Weather Data Base (West Sunbury, PA).
+                 equipment.getRange("A22").getValue(),]];                                            // Comments.
+                
+    // Variables
+//==============================================================================================================================================================================================================//
+    // Calls
+  
+  log.getRange(log.getLastRow()+1, 1, 1, valuecount).setValues(values);                              // Calls the Values Array to retrieve values and set them in the last row of the Log sheet.
+ 
+  
+  substitution.getLastRow()+1;    
+  equipmentDate.copyTo(substitutionDate, {contentsOnly:true});                                       // Copy Date on Equipment sheet and paste the value on the Substitution sheet. 
+  equipmentWell.copyTo(substitutionWell, {contentsOnly:true});                                       // Copy Well Name on Equipment sheet and paste the value on the Substitution sheet.
+  equipmentStage.copyTo(substitutionStage, {contentsOnly:true});                                     // Copy Stage Number on Equipment sheet and paste the value on the Substitution sheet. 
+  equipmentPumpList.copyTo(substitutionPumpList, {contentsOnly:true});                               // Copy the range of pumps and comments, and pastes them on the Substitution sheet.
+  Utilities.sleep(250);                                                                              // Pause to allow the values to be copied to the Log & Substitution sheets.
+
+  fuelHighEnd.copyTo(fuelHighBeg, {contentsOnly:true});                                              // Copies the High Side Ending fuel strap and pastes it as the High Side Beggining value.
+  fuelLowEnd.copyTo(fuelLowBeg, {contentsOnly:true});                                                // Copies the Low Side Ending fuel strap and pastes it as the Low Side Beggining value.
+  gasEnd.copyTo(gasBeg, {contentsOnly:true});                                                        // Copies the Gas Meter Ending strap and Pastes it as the Gas Meter Beginning strap.
+  Utilities.sleep(250);                                                                              // Pause to allow the values to be moved before clearing the contents of the cells.
+
+  fuelHighEnd.clearContent();                                                                        // Clears the contents of the High Side Fuel strap.
+  fuelLowEnd.clearContent();                                                                         // Clears the contents of the Low Side Fuel strap.
+  gasEnd.clearContent();                                                                             // Clears the contents of the Gas Meter Ending strap.
+  equipmentRange2.clearContent();                                                                    // Clears the contents of the range J16:J22 on the Equipment sheet.
+  Utilities.sleep(2000);                                                                // Pause to allow the Main function values to be processed before calling the ResetStageCounter function.
+
+  ResetStageCounter();                                                                               // Calls the ResetStageCounter function from the Main function.
+  
+  function ResetStageCounter() {                                                                     // Begins the ResetStageCounter function.
+  var getStageCounter = equipment.getRange("J14").getValue();                                        // Variable to get the range and value of the Stage counter on the Equipment sheet.
+  var setStageCounterPlusOne = equipment.getRange("J14").setValue(getStageCounter +1);               // Variable to get the range and value of the Stage counter on the Equipment sheet, add one to the value and set it back in the same range.
+ 
+  getStageCounter;                                                                                   // Gets the Stage counter value on the Equipment sheet.
+  setStageCounterPlusOne;                                                                            // Sets the Stage counter value on the Equipment sheet plus 1.
+  }
+  
+}
+                
+
