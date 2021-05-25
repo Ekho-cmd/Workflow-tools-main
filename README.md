@@ -100,7 +100,7 @@ MCF/Stage Count (Chart):
 Green Arrow Button:
   When clicked, initiates the execution of the "Main Function".
   
-<img width="945" alt="Equipment Sheet" src="https://user-images.githubusercontent.com/84663264/119368551-22779f00-bc81-11eb-829a-8f745ad81aab.png">
+<img width="940" alt="Equipment Sheet" src="https://user-images.githubusercontent.com/84663264/119502518-0256e700-bd38-11eb-9efa-59ac4edf4fcf.png">
 
 <img width="894" alt="Tracker Sheet" src="https://user-images.githubusercontent.com/84663264/119368565-273c5300-bc81-11eb-9fe4-615c69898db7.png">
 
