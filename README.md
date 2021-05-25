@@ -27,7 +27,7 @@ Comments:
   
 Diesel Skid Calculator:
   Calculator that takes diesel fuel skid levels in inches and converts them to gallons. Used to record diesel fuel consumption for the previous job.
-    High Side:
+      High Side:
       Fuel skid physically located on the "High Side", determined by proximity to the high end of the unit positions in the site layout.
         Beginning:
           Level of diesel fuel gauged before the units have been refueled.
@@ -39,6 +39,37 @@ Diesel Skid Calculator:
           Level of diesel fuel gauged before the units have been refueled.
         Ending:
           Level of diesel fuel gauged after the units have been refueled.
+          
+Date:
+  Input for the date of the beginning of the job.
+  
+Well Name: 
+  Input the well identifier.
+  
+Stage:
+  Input the stage (job) number.
+  
+Stage Start:
+  Input the time at the start of the stage (job).
+  
+Stage End:
+  Input the time at the end of the stage (job).
+  
+Minutes @ Rate:
+  Input the total length of time the job has been ran at designed rate, in minutes.
+  
+Avg Rate:
+  Input the average rate (bpm) the job was pumped from the time proppant was introduced.
+  
+Avg Pressure:
+  Input the average pressure (psi) the job was pumped fro the time proppant was introduced.
+  
+Diesel Used:
+  Combined total of diesel fuel in gallons, used for the job. Taken from the Diesel Skid Calculator.
+  
+
+          
+   
   
   
   
