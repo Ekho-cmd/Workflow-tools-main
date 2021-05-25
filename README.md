@@ -27,19 +27,7 @@ Comments:
   
 Diesel Skid Calculator:
   Calculator that takes diesel fuel skid levels in inches and converts them to gallons. Used to record diesel fuel consumption for the previous job.
-      High Side:
-      Fuel skid physically located on the "High Side", determined by proximity to the high end of the unit positions in the site layout.
-        Beginning:
-          Level of diesel fuel gauged before the units have been refueled.
-        Ending:
-          Level of diesel fuel gauged after the units have been refueled.
-     Low Side:
-      Fuel skid physically located on the "Low Side", determined by proximity to the low end of the unit positions in the site layout.
-        Beginning:
-          Level of diesel fuel gauged before the units have been refueled.
-        Ending:
-          Level of diesel fuel gauged after the units have been refueled.
-          
+         
 Date:
   Input for the date of the beginning of the job.
   
@@ -49,8 +37,17 @@ Well Name:
 Stage:
   Input the stage (job) number.
   
+Gas Beginning:
+  Measurement reading from the natural gas skid totalizer before beginning the a job.
+  
 Stage Start:
   Input the time at the start of the stage (job).
+  
+Gas Pressure:
+  Measurement reading from the pressure transducer on the natural gas skid manifold.
+  
+Gas Temperature:
+  Measurement reading from the thermometer probe on the natural gas skid manifold.
   
 Stage End:
   Input the time at the end of the stage (job).
@@ -64,16 +61,44 @@ Avg Rate:
 Avg Pressure:
   Input the average pressure (psi) the job was pumped fro the time proppant was introduced.
   
+Gas Ending:
+  Measurement reading from the natural gas skid totalizer taken after the a job.
+  
 Diesel Used:
   Combined total of diesel fuel in gallons, used for the job. Taken from the Diesel Skid Calculator.
   
-
-          
-   
+Gas Used:
+  Total natural gas used for the job in Mcf. Result from the difference of the "Gas Beginning" and "Gas Ending".
   
+Gas Pumps:
+  Total number of dual fuel pumps using gas for the stage. Result from the sum of dual fuel pumps in the "Dual Fuel / Diesel Only" column && the "Using Gas Y/N" column.
   
+Online Pumps:
+  Total number of dual fuel and diesel only pumps used for the stage. Result from the sum of dual fuel pumps in the "Dual Fuel / Diesel Only" column && the "Using Gas Y/N"     column, && the sum of the diesel only pumps.
   
+Stage Length:
+  Total length of the stage in hours and minutes. Result from the difference of "Stage Start" and "Stage End".
   
+Pad Avg Mcf/P:
+  Average natural gas usage per pump. Taken fron the running average of Mcf used per stage and the running average of dual fuel pumps per stage on the "Log" sheet.
+  
+Pad Avg Mcf:
+  Running average natural gas usage over the life of the pad.
+  
+Fleet Sub %:
+  Running percentage of diesel fuel substitution by natural gas over the life of the pad. Calculated from the sustitution column on the "Log" sheet.
+  
+Pad Avg HHP/P:
+  Running average of hydraulic horsepower per pump over the life of the pad. Calculated from the hydraulic horsepower and total pumps online columns on the "Log" sheet.
+  
+Gallons/Stage Count (Chart):
+  Chart representing the changes in gallons of diesel fuel used by stage count.
+  
+MCF/Stage Count (Chart):
+  Chart representing the changes in natural gas usage (Mcf) by stage count.
+  
+Green Arrow Button:
+  When clicked, initiates the execution of the "Main Function".
   
 <img width="945" alt="Equipment Sheet" src="https://user-images.githubusercontent.com/84663264/119368551-22779f00-bc81-11eb-829a-8f745ad81aab.png">
 
