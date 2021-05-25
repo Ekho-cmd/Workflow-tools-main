@@ -1,5 +1,5 @@
 # Workflow-tools-main
-Google Sheet used as a standard format for maintenance, fuel usage, job details, and job calculations. 
+Google Sheet used as a standard format for maintenance, fuel usage, job details, and uses Google Apps Script and cell residing formulas to perform calculations.
 
 *Equipment Sheet:
   Used to input equipment and job details per stage. Input is then submitted to the "Log" sheet for record keeping and life of pad calculations.
@@ -161,6 +161,36 @@ Stroke Interval Setpoints:
 
 <img width="891" alt="Tracker Sheet" src="https://user-images.githubusercontent.com/84663264/119516872-1ce38d00-bd45-11eb-9e18-0f6f16662def.png">
 
+*Proppant Sheet:
+  Google sheet used to keep track of proppant volumes in the onsite bins/silos. Calculates negative volumes to transport loads needed to start a stage.
+  
+Proppant Scheduled:
+  (Row 1) Input the volume of ech proppant type scheduled for the job as dictated by the job design.
+  
+Proppant Storage (A):
+  (Row 2) Select the scheduled proppant type.
+  
+Proppant Storage (B):
+  (A3:B10) Indicates the bin/silo number and what proppant types stored in the respective container.
+  
+Proppant Storage (C):
+  (C3:G10) Input to enter proppant volumes respective to the corrosponding container.
+  
+Comments: 
+  Input comments or equipment issues relavent to the corrosponding container.
+  
+Proppant Totals:
+  Sum total of proppant type on site.
+  
+Available Stages:
+  Result of calculation using the proppant total divided by the proppant scheduled.
+  
+Go/No-Go:
+  Visual and text indicator of whether the proppant total exceeds the proppant scheduled.
+  
+Loads Needed:
+  Result of calculation using the difference of proppant scheduled and proppant totals to output the quantity of proppant loads needed to start a stage.
+  
 <img width="705" alt="Proppant Sheet" src="https://user-images.githubusercontent.com/84663264/119479772-fca0d780-bd1e-11eb-9913-66539cf62d03.png">
 
 <img width="585" alt="Log Sheet" src="https://user-images.githubusercontent.com/84663264/119368578-2d323400-bc81-11eb-9881-0004fcc0debf.png">
