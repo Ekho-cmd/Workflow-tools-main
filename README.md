@@ -153,9 +153,13 @@ Check Valve:
 Comments:
   Cell to input any issues relating to the unit.
   
+Stroke Interval Setpoints:
+  Inputs to declare the stroke interval used in calculations to output the various component usage as a percent.
+  
+ Maintenance Tracker Log:
+  Area where the output of the "TrackerMain" function resides when the "Remove" button has been clicked. This is used as a quick reference to identify the details of a unit the last time it left the site.
 
-
-<img width="894" alt="Tracker Sheet" src="https://user-images.githubusercontent.com/84663264/119368565-273c5300-bc81-11eb-9fe4-615c69898db7.png">
+<img width="891" alt="Tracker Sheet" src="https://user-images.githubusercontent.com/84663264/119516872-1ce38d00-bd45-11eb-9e18-0f6f16662def.png">
 
 <img width="705" alt="Proppant Sheet" src="https://user-images.githubusercontent.com/84663264/119479772-fca0d780-bd1e-11eb-9913-66539cf62d03.png">
 
