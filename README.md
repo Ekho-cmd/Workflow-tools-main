@@ -1,5 +1,5 @@
 # Workflow-tools-main
-Google Sheet used as a standard format for maintenance, fuel usage, job details, and uses Google Apps Script and cell residing formulas to perform calculations.
+Google Sheet using Google Apps Script and cell formulas for job and equipment data calculation and logging.
 
 *Equipment Sheet:
   Used to input equipment and job details per stage. Input is then submitted to the "Log" sheet for record keeping and life of pad calculations.
