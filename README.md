@@ -193,7 +193,8 @@ Loads Needed:
   
 <img width="705" alt="Proppant Sheet" src="https://user-images.githubusercontent.com/84663264/119479772-fca0d780-bd1e-11eb-9913-66539cf62d03.png">
 
-<img width="585" alt="Log Sheet" src="https://user-images.githubusercontent.com/84663264/119368578-2d323400-bc81-11eb-9881-0004fcc0debf.png">
+<img width="867" alt="Log Sheet" src="https://user-images.githubusercontent.com/84663264/119524196-6cc55280-bd4b-11eb-8866-ca493c7daf9f.png">
+
 
 
 
