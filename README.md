@@ -193,6 +193,84 @@ Loads Needed:
   
 <img width="705" alt="Proppant Sheet" src="https://user-images.githubusercontent.com/84663264/119479772-fca0d780-bd1e-11eb-9913-66539cf62d03.png">
 
+*Log Sheet:
+  The log sheet is the record of data, as well as code exectuded calculations and conversions.
+  
+Total Stage Count:
+  A running total of the cumulative stage count.
+  
+Date:
+  Record of the date the stage was started.
+  
+Well:
+  A record of the well identifier.
+  
+Stage:
+  A record of the stage of the corrosponding well.
+  
+Total Pumps Online:
+  A record of the total pumps online; "Dual Fuel && Diesel Only".
+  
+Pumps Using Gas:
+  A record of the quantity of "Dual Fuel" pumps used.
+  
+HHP Calculated:
+  Code executed output of calculated hydraulic horsepower.
+  
+Stage Start Time:
+  A record of the stage start time.
+  
+Stage End Time:
+  A record of the stage end time.
+  
+Minutes @ Rate:
+  A record of the minutes at rate.
+  
+Gas Meter Starting:
+  A record of the natural gas skid totalizer before starting a stage.
+  
+Gas Meter Ending:
+  A record of the natural gas skid totalizer after finishing a stage.
+  
+Gas Meter Used:
+  A record of the difference between the gas meter starting and gas meter ending readings.
+  
+Gas PSI:
+  A record of the gas pressure in pounds per square inch.
+  
+Gas Temp:
+  A record of the gas temperature in Fahrenheit.
+  
+MCF/MIN:
+  A record of the natural gas used per minute in Mcf (1,000 cubic feet).
+  
+MCF/Hour/Pump:
+  A record of the natural gas used per hour by each unit in Mcf.
+  
+Diesel Starting:
+  A record of the diesel fuel measurment before fueling the units.
+  
+Diesel Ending:
+  A record of the diesel fuel measurment after fueling the units.
+  
+Diesel Used:
+  A record of the diesel fuel used for the previous stage, calculated from the difference of the diesel starting and diesel ending readings.
+  
+Gal/Hour/Pump:
+  A record of the gallons a unit uses in one hour.
+  
+Average Rate:
+  A record of the average rate.
+  
+Average Pressure:
+  A record of the average pressure.
+  
+Ambient Temp:
+  A record of the ambient temperature imported fromt a local weather center website measurement.
+  
+Comments:
+  A record of comments.
+
 <img width="867" alt="Log Sheet" src="https://user-images.githubusercontent.com/84663264/119524196-6cc55280-bd4b-11eb-8866-ca493c7daf9f.png">
 
 
