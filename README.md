@@ -1,6 +1,9 @@
 # Workflow-tools-main
 Google Sheet used as a standard format for maintenance, fuel usage, job details, and job calculations. 
 
+*Equipment Sheet:
+  Used to input equipment and job details per stage. Input is then submitted to the "Log" sheet for record keeping and life of pad calculations.
+
 Unit:
   Physical location of the unit on the site.
   
@@ -101,6 +104,56 @@ Green Arrow Button:
   When clicked, initiates the execution of the "Main Function".
   
 <img width="940" alt="Equipment Sheet" src="https://user-images.githubusercontent.com/84663264/119502518-0256e700-bd38-11eb-9efa-59ac4edf4fcf.png">
+
+*Fluid End Maintenance Tracker
+  Tracker sheet is used to provide a visual indicator for equipment maintenance time intervals. When a unit leaves the site, the Remove function is used transfer the unit       information to a running log below the tracker as a quick reference for when the unit returns.
+
+Check units to be removed from tracker:
+  When a unit needs to leave the site, the corresponding checkbox can be selected and the "Remove" button clicked. This will initiate the execution of the "TrackerMain"         function and copy the unit information to the log below the tracker. Once transfered, the unit information will be cleared so the new unit information can be entered.
+  
+Position:
+  Denotes the physical location of the unit on the site.
+  
+Unit Number:
+  Input for the unit number of the unit in this location.
+  
+Usage:
+  Selection for the type of fluid the unit will use during the job. "Clean" is described as water that does not have proppant or acid in it; "Dirty" is described as water       that has proppant mixed with it as a slurry, and does not use acid; "Acid" is described as a clean or dirty pump that will use either acid or acid mixed with water.
+  
+Select Seat Type:
+  Selection for the type of valve seat installed in the fluid end. "Conv." is described as a stainless steel seat; "Carbide" is described as a high-carbon steel seat.
+  
+Current Pump Strokes:
+  Input is entered as the current totalized strokes of the power-end pony rods. In the context of this sheet it is only used as a measurment of usage for calculating maintenance intervals.
+  
+Last Valve Change:
+  Input is entered as the stroke count at the last time the fluid end valves were replaced or inspected.
+  
+Last Seat Change:
+  Input is entered as the stroke count at the last time the fluid end seats were replaced or inspected.
+    
+Last Packing Change:
+  Input is entered as the stroke count at the last time the fluid end packings were replaced or inspected.
+  
+Last Check Valve Inspection:
+  Input is entered as the stroke count at the last time the unit check valve was inspected, repaired, or replaced.
+  
+Valves:
+  Result of calculating the difference between the current stroke count and the previous valve change, divided by the variable valve setpoint. Shown as a percentage.
+  
+Seats:
+  Result of calculating the difference between the current stroke count and the previous seat change, divided by the variable seat setpoint. Shown as a percentage.
+  
+Packing:
+  Result of calculating the difference between the current stroke count and the previous packing change, divided by the variable packing setpoint. Shown as a percentage.
+  
+Check Valve:
+  Result of calculating the difference between the current stroke count and the previous 'valve' change, divided by the variable check valve setpoint. Shown as a percentage.
+  
+Comments:
+  Cell to input any issues relating to the unit.
+  
+
 
 <img width="894" alt="Tracker Sheet" src="https://user-images.githubusercontent.com/84663264/119368565-273c5300-bc81-11eb-9fe4-615c69898db7.png">
 
