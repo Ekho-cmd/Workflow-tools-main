@@ -62,10 +62,10 @@ Avg Rate:
   Input the average rate (bpm) the job was pumped from the time proppant was introduced.
   
 Avg Pressure:
-  Input the average pressure (psi) the job was pumped fro the time proppant was introduced.
+  Input the average pressure (psi) the job was pumped from the time proppant was introduced to the time proppant was cut.
   
 Gas Ending:
-  Measurement reading from the natural gas skid totalizer taken after the a job.
+  Measurement reading from the natural gas skid totalizer taken after the job.
   
 Diesel Used:
   Combined total of diesel fuel in gallons, used for the job. Taken from the Diesel Skid Calculator.
